@@ -2,8 +2,8 @@ import express from 'express';
 import { ApolloServer } from 'apollo-server-express';
 import dotenv from 'dotenv';
 
-import typeDefs from './schema';
-import resolvers from './resolvers';
+import typeDefs from './schemas/schema';
+import resolvers from './resolvers/resolvers';
 
 dotenv.config();
 
@@ -14,7 +14,7 @@ const server = new ApolloServer({
   resolvers,
 });
 
-server.applyMiddleware({ app });
+server.applyMiddleware({ app, path: '/api' });
 
 app.get('/', (req, res) => { res.send('Hello world'); });
 
