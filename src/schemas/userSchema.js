@@ -14,11 +14,11 @@ export default gql`
       user: User
     }
 
-    type Query {
+    extend type Query {
       users(firstName: String, lastName: String, email: String): [User]
       user(id: Int!): User
     }
-    type Mutation {
+    extend type Mutation {
       createUser(
         firstName: String!
         lastName: String
